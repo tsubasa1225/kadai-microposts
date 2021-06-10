@@ -25,4 +25,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+  
+  before_action :require_user_logged_in, only: [:index, :show]
 end
